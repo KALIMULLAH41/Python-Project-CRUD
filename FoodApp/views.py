@@ -25,3 +25,13 @@ def add_item(request):
         return redirect('FoodApp:home')
         
     return render(request,'FoodApp/item-form.html',{'form':form})
+
+def update_item(request,id):
+    item=Items.objects.get(pk=id)
+    form=ItemForm(request.POST or None,instance=item)
+    if form.is_valid():
+        form.save()
+        return redirect('FoodApp:home')
+        
+    return render(request,'FoodApp/item-form.html',{'form':form})
+

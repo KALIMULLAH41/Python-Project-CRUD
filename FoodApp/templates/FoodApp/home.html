@@ -1,7 +1,14 @@
+{% extends "FoodApp/base.html" %}
+
+ {% block body %}
+<div>
 <ul>
   {% for i in item_list %}
   <li>
   <a href={% url "FoodApp:details" i.id %}>
-  {{ i.item_name }} {{i.id}}</a></li>
+  {{ i.item_name }} </a></li>
   {% endfor %}
 </ul>
+</div>
+
+{% endblock %}

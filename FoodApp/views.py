@@ -34,4 +34,12 @@ def update_item(request,id):
         return redirect('FoodApp:home')
         
     return render(request,'FoodApp/item-form.html',{'form':form})
+def delete_item(request,id):
+    item=Items.objects.get(pk=id)
+    if request.method=='POST':
+        item.delete()
+        return redirect('FoodApp:home')
+    return render(request,'FoodApp/delete_msg.html',{'item':item})
+
+   
 

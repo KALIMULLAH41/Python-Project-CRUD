@@ -7,3 +7,6 @@ def register(request):
         form.save()
         return redirect('login')
     return render(request,'users/register.html',{'form':form})
+
+def profile(request):
+    return render(request,'users/profile.html')

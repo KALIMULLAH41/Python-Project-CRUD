@@ -2,9 +2,12 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Items
 from FoodApp.forms import ItemForm
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
+@login_required
 def home(request):
     item_list=Items.objects.all()
     context={
